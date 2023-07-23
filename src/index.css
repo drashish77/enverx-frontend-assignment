@@ -5,9 +5,57 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1536px) {
+  .container {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1537px) {
+  .container {
+    width: 1536px;
+  }
+}
+
+#error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.css-46bh2p-MuiCardContent-root{
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+
 }
