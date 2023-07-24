@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import AddForm from '../../components/AddForm'
+import FormComponent from '../../components/Form'
 
 const AddExpense = () => {
   const navigate = useNavigate()
@@ -18,7 +18,7 @@ const AddExpense = () => {
         <button onClick={() => navigate('/')}>Cancel</button>
       </Container>
       <div className=''>
-        <AddForm />
+        <FormComponent />
       </div>
     </div>
   )

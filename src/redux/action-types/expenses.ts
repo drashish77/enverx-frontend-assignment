@@ -1,5 +1,6 @@
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const SET_EXPENSES = 'SET_EXPENSES';
 
 const expensesActionTypes = {
     POST_NEW_EXPANSE_START: 'POST_NEW_EXPANSE_START',

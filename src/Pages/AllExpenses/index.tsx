@@ -7,6 +7,8 @@ import { AllExpensesCollection } from '../../firebase'
 import { AllExpensesType } from '../../../utils/types/expense'
 
 import Grid from '@mui/material/Grid'
+import { useDispatch, useSelector } from 'react-redux'
+import { setExpense } from '../../redux/actions/expenses'
 interface ListItemType {
   id: string
   title: string
@@ -16,54 +18,24 @@ interface ListItemType {
   amount: number
 }
 const AllExpenses = () => {
-  const [expenses, setExpenses] = useState<AllExpensesType[]>([])
-  // const AllExpensesList = [
-  //   {
-  //     id: 1,
-  //     title: 'first expense',
-  //     created_at: Date.now(),
-  //     description: 'This is just simple description of the expenses',
-  //     category: 'Daily Need',
-  //     amount: 100
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'first expense',
-  //     created_at: Date.now(),
-  //     description: 'This is just simple description of the expenses',
-  //     category: 'Daily Need',
-  //     amount: 100
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'first expense',
-  //     created_at: Date.now(),
-  //     description: 'This is just simple description of the expenses',
-  //     category: 'Daily Need',
-  //     amount: 100
-  //   },
-  //   {
-  //     id: 4,
-  //     title: 'first expense',
-  //     created_at: Date.now(),
-  //     description: 'This is just simple description of the expenses',
-  //     category: 'Daily Need',
-  //     amount: 100
-  //   },
-  //   {
-  //     id: 5,
-  //     title: 'first expense',
-  //     created_at: Date.now(),
-  //     description: 'This is just simple description of the expenses',
-  //     category: 'Daily Need',
-  //     amount: 100
-  //   }
-  // ]
-
+  const [expenses, setExpensesLocal] = useState<AllExpensesType[]>([])
+  const { expenseList } = useSelector((state: any) => state.expenses)
+  // console.log('allExpenses', expenseList[0])
+  const dispath = useDispatch()
   useEffect(
     () =>
       onSnapshot(AllExpensesCollection, (snapshot) => {
-        setExpenses(
+        dispath(
+          setExpense(
+            snapshot.docs.map((doc) => {
+              return {
+                id: doc.id,
+                ...doc.data()
+              }
+            })
+          )
+        )
+        setExpensesLocal(
           snapshot.docs.map((doc) => {
             return {
               id: doc.id,
@@ -86,14 +58,6 @@ const AllExpenses = () => {
           {expenses.length !== 0 ? (
             expenses.map(
               ({ id, title, description, created_at, category, amount }) => {
-                console.log('new', {
-                  id,
-                  title,
-                  description,
-                  created_at,
-                  category,
-                  amount
-                })
                 return (
                   <Grid item xs={'auto'} sm={4} md={4} lg={3} key={id}>
                     <ExpansesCard

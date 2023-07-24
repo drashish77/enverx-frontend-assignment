@@ -1,17 +1,16 @@
 import Header from '../../components/Header'
-import AllExpenses from '../../components/AllExpenses'
+import AllExpenses from '../AllExpenses'
 import Footer from '../../components/Footer'
+import { useSelector } from 'react-redux'
 const Home = () => {
+  const data = useSelector((state) => state)
+  console.log({ data })
   return (
     <div>
       {/* <Header /> */}
       <div className='container'>
-        <h1>This is home component</h1>
-        {/* <AllExpenses />
         <AllExpenses />
-        <AllExpenses /> */}
       </div>
-      {/* <Footer /> */}
     </div>
   )
 }

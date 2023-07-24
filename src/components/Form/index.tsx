@@ -75,7 +75,6 @@ const FormComponent = () => {
       dispath(addExpense(payload))
       actions.resetForm()
       toast.success('Form submitted successfully')
-      // redirect('/all-expenses')
       navigate('/all-expenses', { replace: true })
     } catch (error) {
       console.error(error)
