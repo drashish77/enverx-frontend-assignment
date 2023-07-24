@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, DELETE_EXPENSE, SET_EXPENSES } from "../action-types/expenses";
+import { ADD_EXPENSE, ADD_INCOME, DELETE_EXPENSE, SET_EXPENSES } from "../action-types/expenses";
 
 const initialState = {
     expenseList: [],
@@ -27,6 +27,12 @@ export const expenseReducer = (state = initialState, action: any) => {
                 loading: false,
                 expenseList: updatedList
             }
+        case ADD_INCOME:
+            return {
+                ...state,
+                loading: true,
+                expenseList: [...state.expenseList, action.data]
+            };
         default:
             return state;
     }

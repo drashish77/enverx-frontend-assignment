@@ -13,6 +13,7 @@ import AllExpenses from './Pages/AllExpenses'
 import RecentExpenses from './Pages/RecentExpenses'
 import ErrorPage from './error'
 import { Toaster } from 'react-hot-toast'
+import AddIncome from './components/AddIncome'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/add-expense',
     element: <AddExpense />
+  },
+  {
+    path: '/add-income',
+    element: <AddIncome />
   },
   {
     path: '/recent-expenses',

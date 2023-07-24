@@ -18,3 +18,4 @@ const firestore = getFirestore(app);
 export default firestore;
 
 export const AllExpensesCollection = collection(firestore, 'expenses');
+export const AllIncomeCollection = collection(firestore, 'income');

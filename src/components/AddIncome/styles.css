@@ -1,0 +1,56 @@
+.iconBox {
+  background: #ffffff;
+  box-shadow: 0px 7px 15px rgba(12, 4, 255, 0.05);
+  border-radius: 16px;
+}
+
+.border {
+  border: 0.5px dashed rgba(138, 71, 243, 0.37);
+}
+.title {
+  /* flex items-center gap-2 rounded-lg border-[1px]  */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,.2);
+  padding: 8px;
+  margin-top: 20px;
+}
+.title-input{
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border: 0;
+}
+
+.form-wrapper {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.error-message{
+    margin-top: 4px;
+    font-size: 10px;
+    color: red;
+}
+.submit-btn{
+    /* button-gradient group relative  w-full rounded-full px-10 py-3 text-center text-white transition-all duration-[400ms] hover:md:-translate-y-1 */
+    position: relative;
+    margin-top: 10px;
+    background: blue;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 20px;
+    padding:20px 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    transition: all .4s ;
+}
+.submit-btn:hover {
+    transform: translateY(4px);
+}

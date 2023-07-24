@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography'
 import { red } from '@mui/material/colors'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import './style.css'
-import { Divider } from '@mui/material'
+import { Box, Divider } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { deleteExpense } from '../../redux/actions/expenses'
 import {
@@ -83,12 +83,7 @@ export default function ExpansesCard(item: CardTypes) {
   return (
     <Card className='card'>
       <CardHeader
-        sx={{ ':first-letter': 'uppercase' }}
-        // avatar={
-        //   <Avatar sx={{ bgcolor: red[500] }} aria-label='recipe'>
-        //     {title && title.toLowerCase()[0]}
-        //   </Avatar>
-        // }
+
         action={
           <IconButton
             aria-label='settings'
@@ -102,6 +97,7 @@ export default function ExpansesCard(item: CardTypes) {
           <Typography
             color='text.secondary'
             sx={{ padding: 0, fontWeight: 700 }}
+            className='title-card'
           >
             {title}
           </Typography>
@@ -125,10 +121,10 @@ export default function ExpansesCard(item: CardTypes) {
         </Typography>
       </CardContent>
       <CardContent>
-        <Typography paragraph>
+        <Box>
           Description:
           <Divider sx={{ marginTop: 1 }} />
-        </Typography>
+        </Box>
         <Typography paragraph className='card-item'>
           {description}
         </Typography>

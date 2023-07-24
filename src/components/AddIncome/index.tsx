@@ -8,15 +8,12 @@ import DescriptionIcon from '@mui/icons-material/Description'
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
 import CategoryIcon from '@mui/icons-material/Category'
 import { useDispatch } from 'react-redux'
-import { addIncome } from '../../redux/actions/expenses'
-
+import { addExpense } from '../../redux/actions/expenses'
 import db from '../../firebase'
 import { v4 as uuidv4 } from 'uuid'
 import { doc, setDoc, collection, serverTimestamp } from 'firebase/firestore'
 
 interface FormValues {
-  title: string
-  description: string
   amount: number
   category: string
 }
@@ -24,11 +21,9 @@ interface FormValues {
 const FormComponent = () => {
   const navigate = useNavigate()
   const dispath = useDispatch()
-  const collectionRef = collection(db, 'expenses')
+  const collectionRef = collection(db, 'income')
 
   const initialValues: FormValues = {
-    title: '',
-    description: '',
     amount: null || 0,
     category: ''
   }
@@ -38,8 +33,6 @@ const FormComponent = () => {
   ) => {
     const payload = {
       id: uuidv4(),
-      title: values.title,
-      description: values.description,
       amount: values.amount,
       category: values.category,
       created_at: serverTimestamp()
@@ -48,7 +41,7 @@ const FormComponent = () => {
     try {
       const expanseRef = doc(collectionRef, payload.id)
       await setDoc(expanseRef, payload)
-      dispath(addIncome(payload))
+      dispath(addExpense(payload))
       actions.resetForm()
       toast.success('Form submitted successfully')
       navigate('/all-expenses', { replace: true })
@@ -71,42 +64,10 @@ const FormComponent = () => {
             return (
               <Form className=''>
                 <div className=''>
-                  <div className='h-[90px]'>
-                    <div className='title'>
-                      <TitleIcon />
-                      <Field
-                        type='text'
-                        name='title'
-                        placeholder='Title'
-                        className='title-input'
-                      />
-                    </div>
-                    <div className='error-message '>
-                      <ErrorMessage name='title' />
-                    </div>
-                  </div>
                   <div className='mb-5 grid h-[160px] grid-rows-2 gap-y-5 md:h-[90px] md:grid-cols-2 md:grid-rows-1 md:gap-2 lg:mb-0'>
                     <div className=''>
                       <div className='title'>
-                        <DescriptionIcon />
-
-                        <Field
-                          component='textarea'
-                          rows={5}
-                          cols={40}
-                          name='description'
-                          placeholder='Description'
-                          className='title-input'
-                        />
-                      </div>
-                      <div className='error-message '>
-                        <ErrorMessage name='description' />
-                      </div>
-                    </div>
-                    <div className=''>
-                      <div className='title'>
                         <CurrencyRupeeIcon />
-
                         <Field
                           type='number'
                           name='amount'
@@ -129,12 +90,11 @@ const FormComponent = () => {
                         className='title-input'
                       >
                         <option value='' selected disabled hidden>
-                          Please select your expanse category
+                          Please select your income category
                         </option>
-                        <option value='Daily'>Daily</option>
-                        <option value='Weekly'>Weekly</option>
-                        <option value='Monthly'>Monthly</option>
-                        <option value='Yearly'>Yearly</option>
+                        <option value='Salary'>Salary</option>
+                        <option value='Freelancing'>Freelancing</option>
+                        <option value='Contract'>Contract</option>
                         <option value='Others'>Others</option>
                       </Field>
                     </div>

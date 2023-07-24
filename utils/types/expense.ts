@@ -11,3 +11,11 @@ export interface CreatedAt {
     seconds: number;
     nanoseconds: number;
 }
+export interface AllIncomeType {
+    created_at?: CreatedAt;
+    id?: string;
+    amount?: number;
+    category?: string;
+}
+
+

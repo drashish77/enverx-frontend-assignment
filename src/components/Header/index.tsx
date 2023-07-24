@@ -14,8 +14,8 @@ import MenuItem from '@mui/material/MenuItem'
 import MonetizationOn from '@mui/icons-material/MonetizationOn'
 import { createSvgIcon } from '@mui/material/utils'
 const pages = [
-  { id: 1, name: 'Add New', iconName: '', path: 'add-expense' },
-  { id: 2, name: 'Recent', iconName: '', path: 'recent-expenses' },
+  { id: 1, name: 'Add Expense', iconName: '', path: 'add-expense' },
+  { id: 2, name: 'Add Income', iconName: '', path: 'add-income' },
   { id: 3, name: 'All', iconName: '', path: 'all-expenses' }
 ]
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
@@ -153,7 +153,7 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
@@ -181,7 +181,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>

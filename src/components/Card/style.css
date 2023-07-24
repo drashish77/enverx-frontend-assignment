@@ -30,3 +30,6 @@
 text-transform: uppercase;
 font-size: 1em;
 }
+.title-card::first-letter{
+text-transform: uppercase;
+}

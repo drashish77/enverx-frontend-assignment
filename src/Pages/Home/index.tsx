@@ -1,6 +1,5 @@
-import Header from '../../components/Header'
+import FilteredData from '../../components/Table'
 import AllExpenses from '../AllExpenses'
-import Footer from '../../components/Footer'
 import { useSelector } from 'react-redux'
 const Home = () => {
   const data = useSelector((state) => state)
@@ -9,7 +8,8 @@ const Home = () => {
     <div>
       {/* <Header /> */}
       <div className='container'>
-        <AllExpenses />
+        {/* <AllExpenses /> */}
+        <FilteredData />
       </div>
     </div>
   )

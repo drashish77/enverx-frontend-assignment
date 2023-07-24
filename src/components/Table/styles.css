@@ -1,0 +1,14 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+#category-list {
+  padding: 5px;
+}
+.sport-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
