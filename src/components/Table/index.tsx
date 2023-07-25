@@ -21,7 +21,7 @@ export default function FilteredData() {
     return expenses.filter((item: any) => item.category === selectedCategory)
   }
   const filteredList = getFilteredList()
-  console.log({ expenseList })
+
 
   function handleCategoryChange(event: any) {
     setSelectedCategory(event.target.value)
