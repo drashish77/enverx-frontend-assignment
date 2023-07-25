@@ -57,7 +57,6 @@ function ResponsiveAppBar() {
     <AppBar position='sticky'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <MonetizationOn sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant='h6'
             noWrap
@@ -66,6 +65,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
+              alignItems: 'center',
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -73,6 +73,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none'
             }}
           >
+            <MonetizationOn
+              sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+            />
             INEX
           </Typography>
 
@@ -117,7 +120,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <MonetizationOn sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
           <Typography
             variant='h5'
             noWrap
@@ -127,6 +130,7 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
+              alignItems: 'center',
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -134,6 +138,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none'
             }}
           >
+            <MonetizationOn
+              sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
+            />
             INEX
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

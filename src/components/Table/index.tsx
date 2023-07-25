@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import './styles.css'
 import { useSelector } from 'react-redux'
-import { Backdrop, CircularProgress, Grid } from '@mui/material'
+import { Backdrop, Button, CircularProgress, Grid } from '@mui/material'
 import ExpansesCard from '../Card'
 import { AllExpensesType } from '../../../utils/types/expense'
 import { onSnapshot } from 'firebase/firestore'
 import { setExpense } from '../../redux/actions/expenses'
 import { AllExpensesCollection } from '../../firebase'
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 export default function FilteredData() {
   const [loading, setLoading] = useState(false)
   const [incomeLoader, setIncomeLoader] = useState(false)
@@ -21,7 +21,6 @@ export default function FilteredData() {
     return expenses.filter((item: any) => item.category === selectedCategory)
   }
   const filteredList = getFilteredList()
-
 
   function handleCategoryChange(event: any) {
     setSelectedCategory(event.target.value)
@@ -93,8 +92,16 @@ export default function FilteredData() {
                 }
               )
             ) : (
-              <div>
-                <p className=''>Please add some item</p>
+              <div className='no-expense-wrap'>
+                <p className='no-expense'>The list is empty</p>
+                <Button
+                  variant='contained'
+                  // onClick={handleCloseNavMenu}
+                  sx={{ my: 2, variant: 'text', mx: 2, display: 'block' }}
+                  href='/add-expense'
+                >
+                  Add expense
+                </Button>
               </div>
             )}
           </Grid>

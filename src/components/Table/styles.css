@@ -17,3 +17,12 @@
   margin-left: 50px;
 }
 }
+
+.no-expense-wrap{
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

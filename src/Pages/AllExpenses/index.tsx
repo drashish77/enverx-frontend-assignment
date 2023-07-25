@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setExpense, setIncome } from '../../redux/actions/expenses'
 import {
   Backdrop,
+  Button,
   CardContent,
   CircularProgress,
   Container,
@@ -163,8 +164,16 @@ const AllExpenses = () => {
                   }
                 )
               ) : (
-                <div>
-                  <p className=''>Please add some item</p>
+                <div className='no-expense-wrap'>
+                  <p className='no-expense'>The list is empty</p>
+                  <Button
+                    variant='contained'
+                    // onClick={handleCloseNavMenu}
+                    sx={{ my: 2, variant: 'text', mx: 2, display: 'block' }}
+                    href='/add-expense'
+                  >
+                    Add expense
+                  </Button>
                 </div>
               )}
             </Grid>
