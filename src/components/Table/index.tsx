@@ -79,7 +79,7 @@ export default function FilteredData() {
               filteredList.map(
                 ({ id, title, description, created_at, category, amount }) => {
                   return (
-                    <Grid item xs={'auto'} sm={4} md={4} lg={3} key={id}>
+                    <Grid item xs={12} sm={4} md={4} lg={3} key={id}>
                       <ExpansesCard
                         id={id}
                         title={title}
