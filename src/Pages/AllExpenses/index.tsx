@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import './style.css'
 import ExpansesCard from '../../components/Card'
 import { useEffect, useState } from 'react'
@@ -15,14 +14,7 @@ import {
   Container,
   Typography
 } from '@mui/material'
-interface ListItemType {
-  id: string
-  title: string
-  description: string
-  category: string
-  created_at: Date
-  amount: number
-}
+
 const AllExpenses = () => {
   const [loading, setLoading] = useState(false)
   const [incomeLoader, setIncomeLoader] = useState(false)
@@ -115,7 +107,6 @@ const AllExpenses = () => {
                 color='text.secondary'
                 sx={{ padding: 0, marginBottom: 2 }}
               >
-                {/* <AccountBalanceWalletIcon sx={{ marginTop: '50px' }} /> */}
                 <span className='card-span'>Balance:</span>
                 {+sumIncome - Number(sumExpenses)}
               </Typography>

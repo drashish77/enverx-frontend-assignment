@@ -8,7 +8,6 @@
   border: 0.5px dashed rgba(138, 71, 243, 0.37);
 }
 .title {
-  /* flex items-center gap-2 rounded-lg border-[1px]  */
   display: flex;
   align-items: center;
   gap: 8px;

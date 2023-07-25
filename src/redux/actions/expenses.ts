@@ -1,4 +1,4 @@
-import types, { ADD_EXPENSE, ADD_INCOME, DELETE_EXPENSE, SET_EXPENSES } from '../action-types/expenses'
+import { ADD_EXPENSE, ADD_INCOME, DELETE_EXPENSE, SET_EXPENSES } from '../action-types/expenses'
 
 export const addExpense = (data: any) => {
     return {

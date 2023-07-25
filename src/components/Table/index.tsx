@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react'
-// import Item from './components/Item'
 import './styles.css'
 import { useSelector } from 'react-redux'
 import { Backdrop, CircularProgress, Grid } from '@mui/material'
@@ -9,7 +8,6 @@ import { onSnapshot } from 'firebase/firestore'
 import { setExpense } from '../../redux/actions/expenses'
 import { AllExpensesCollection } from '../../firebase'
 
-//Filter list by category in React JS
 export default function FilteredData() {
   const [loading, setLoading] = useState(false)
   const [incomeLoader, setIncomeLoader] = useState(false)
@@ -24,8 +22,6 @@ export default function FilteredData() {
   }
   const filteredList = getFilteredList()
   console.log({ expenseList })
-  // Avoid duplicate function calls with useMemo
-  // var filteredList = useMemo(getFilteredList, [selectedCategory, sportList])
 
   function handleCategoryChange(event: any) {
     setSelectedCategory(event.target.value)
@@ -33,16 +29,6 @@ export default function FilteredData() {
   useEffect(() => {
     setLoading(true)
     const unsub = onSnapshot(AllExpensesCollection, (snapshot) => {
-      // dispath(
-      //   setExpense(
-      //     snapshot.docs.map((doc) => {
-      //       return {
-      //         id: doc.id,
-      //         ...doc.data()
-      //       }
-      //     })
-      //   )
-      // )
       setExpensesLocal(
         snapshot.docs.map((doc) => {
           return {

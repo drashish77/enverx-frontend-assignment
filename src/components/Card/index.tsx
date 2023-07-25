@@ -1,8 +1,6 @@
-import * as React from 'react'
 import { styled } from '@mui/material/styles'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
-import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import IconButton, { IconButtonProps } from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
@@ -10,15 +8,7 @@ import { red } from '@mui/material/colors'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import './style.css'
 import { Box, Divider } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { deleteExpense } from '../../redux/actions/expenses'
-import {
-  collection,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-  updateDoc
-} from 'firebase/firestore'
+import { collection, deleteDoc, doc } from 'firebase/firestore'
 import db from '../../firebase'
 import { toast } from 'react-hot-toast'
 interface ExpandMoreProps extends IconButtonProps {
@@ -46,13 +36,8 @@ interface CardTypes {
 }
 export default function ExpansesCard(item: CardTypes) {
   const { id, title, description, time, category, amount } = item
-  const [expanded, setExpanded] = React.useState(false)
   const collectionRef = collection(db, 'expenses')
-  // const handleExpandClick = (id: string) => setExpanded(!expanded)
 
-  // const dispath = useDispatch()
-  // const handleDelete = () => {
-  // DELETE FUNCTION
   async function handleDelete() {
     try {
       const expenseRef = doc(collectionRef, id)
@@ -62,28 +47,10 @@ export default function ExpansesCard(item: CardTypes) {
       console.error(error)
     }
   }
-  //   // dispath(deleteExpense(item))
-  // }
-
-  // EDIT FUNCTION
-  // async function editSchool() {
-  //   const updatedSchool = {
-  //     score: id,
-  //     lastUpdate: serverTimestamp()
-  //   }
-
-  //   try {
-  //     const expenseRef = doc(collectionRef, id)
-  //     updateDoc(expenseRef, updatedSchool)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
 
   return (
     <Card className='card'>
       <CardHeader
-
         action={
           <IconButton
             aria-label='settings'

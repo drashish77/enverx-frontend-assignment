@@ -8,18 +8,11 @@ body {
   font-size: 16px;
 }
 
-
-
 .container {
   width: 100%;
   margin: auto;
 }
 
-@media screen and (max-width: 640px) {
-  .container {
-    width: 100%;
-  }
-}
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
@@ -54,8 +47,28 @@ body {
   width: 100%;
 }
 
-.css-46bh2p-MuiCardContent-root{
+.css-46bh2p-MuiCardContent-root {
   padding-top: 5px !important;
   padding-bottom: 5px !important;
+}
 
+.error-media {
+  width: 600px;
+  height: 60vh;
+  position: relative;
+}
+.error-media img {
+  width: 100%;
+  position: absolute;
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    width: 100%;
+  }
+  .error-media {
+    width: 200px;
+    height: 30vh;
+    position: relative;
+  }
 }
